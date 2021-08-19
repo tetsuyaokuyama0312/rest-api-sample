@@ -1,0 +1,16 @@
+[
+  {
+    "lastName": "てすと",
+    "firstName": "太郎",
+    "birthday": "2020-12-25"
+  },
+  {
+    "lastName": "テスト",
+    "firstName": "花子"
+  },
+  {
+    "lastName": "Test",
+    "firstName": "John",
+    "birthday": "2021-09-09"
+  }
+]

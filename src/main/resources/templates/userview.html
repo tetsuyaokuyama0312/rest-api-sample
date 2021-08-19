@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8"/>
+    <script type="text/javascript"
+            src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.0/jquery.min.js"></script>
+    <script type="text/javascript" th:src="@{/js/user.js}"></script>
+    <title>ユーザー情報 REST API 操作用画面</title>
+</head>
+<body>
+<ul>
+    <li th:each="user: ${users}">
+        <p th:text="${user}"/>
+        <input type="button" value="GET" th:data-uid="${user.uid}"
+               th:onclick="|sendGET(this.getAttribute('data-uid'))|"/>
+        <input type="button" value="GET(URL)" th:data-uid="${user.uid}"
+               th:onclick="|sendGETWithUrl(this.getAttribute('data-uid'))|"/>
+        <input type="button" value="PUT" th:data-uid="${user.uid}"
+               th:data-last-name="${user.lastName}"
+               th:data-first-name="${user.firstName}"
+               th:data-birthday="${user.birthday}"
+               th:onclick="|sendPUT(
+               this.getAttribute('data-uid'),
+               this.getAttribute('data-last-name'),
+               this.getAttribute('data-first-name'),
+               this.getAttribute('data-birthday'))|"/>
+        <input type="button" value="DELETE" th:data-uid="${user.uid}"
+               th:onclick="|sendDELETE(this.getAttribute('data-uid'))|"/>
+    </li>
+</ul>
+<input type="button" value="POST" onclick="sendPOST()"/>
+<input type="button" value="GET(PARAM)" onclick="sendGETWithParams()"/>
+<input type="button" value="GET(PARAM(URL))" onclick="sendGETWithUrlParams()"/>
+</body>
+</html>
